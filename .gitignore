@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual envs
+env/
+.venv/
+.conda/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# MLflow logs (jangan dipush)
+mlruns/
+mlartifacts/
