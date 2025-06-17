@@ -43,9 +43,12 @@ jobs:
  
       # Save models to GitHub Repository
       - name: Save mlruns to repo
+        env:
+         TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.name ${{ secrets.username }}
           git config --global user.email ${{ secrets.email }}
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/iwacooy/kumar.git
           git add mlruns/
-          git commit -m "Save mlruns from CI run"
+          git commit -m "Save mlruns from CI run" || echo "Nothing to commit"
           git push origin main
