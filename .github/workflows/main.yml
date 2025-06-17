@@ -51,6 +51,9 @@ jobs:
           git config --global user.name ${{ secrets.username }}
           git config --global user.email ${{ secrets.email }}
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/iwacooy/kumar.git
+          git lfs install
+          git lfs track "mlruns/**"
+          git add .gitattributes
           git add mlruns/
           git commit -m "Save mlruns from CI run" || echo "Nothing to commit"
           git push origin main
